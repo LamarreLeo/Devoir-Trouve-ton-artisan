@@ -5,7 +5,7 @@ const getAllCategories = async (req, res) => {
         const categories = await categorieService.getAllCategories();
         res.status(200).json(categories);
     } catch (error) {
-        res.status(500).json({ message: "Une erreur est survenue" });
+        res.status(500).json({ error: error.message });
     }
 };
 
