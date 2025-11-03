@@ -14,10 +14,17 @@ const Artisan = sequelize.define("artisan", {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
+        validate: {
+            isEmail: true
+        }
     },
     site: {
         type: DataTypes.STRING,
         allowNull: true,
+        validate: {
+            isUrl: true
+        }
     },
     ville: {
         type: DataTypes.STRING,
@@ -30,10 +37,26 @@ const Artisan = sequelize.define("artisan", {
     note: {
         type: DataTypes.DECIMAL(2, 1),
         allowNull: false,
+        defaultValue: 0,
+        validate: {
+            min: 0,
+            max: 5
+        }
     },
-    top : {
+    top: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
+        defaultValue: false
+    },
+    id_specialite: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'specialite',
+            key: 'id_specialite'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT'
     },
 }, {
     tableName: 'artisan',
@@ -42,7 +65,7 @@ const Artisan = sequelize.define("artisan", {
 
 // Relations
 Artisan.associate = (models) => {
-    
+
     // Un artisan appartient a une specialite
     Artisan.belongsTo(models.Specialite, {
         foreignKey: "id_specialite",

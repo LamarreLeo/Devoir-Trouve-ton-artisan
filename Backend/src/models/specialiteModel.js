@@ -10,6 +10,17 @@ const Specialite = sequelize.define("specialite", {
     nom: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true
+    },
+    id_categorie: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'categorie',
+            key: 'id_categorie'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT'
     },
 }, {
     tableName: 'specialite',
