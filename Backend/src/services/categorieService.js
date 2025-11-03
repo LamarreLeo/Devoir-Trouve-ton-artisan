@@ -1,8 +1,8 @@
-const Categorie = require("../models/categorieModel");
+const db = require("../models");
 
 const getAllCategories = async () => {
     try {
-        const categories = await Categorie.findAll({
+        const categories = await db.Categorie.findAll({
             order: [
                 ['id_categorie', 'ASC']
             ]

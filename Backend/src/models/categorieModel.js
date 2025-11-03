@@ -16,4 +16,14 @@ const Categorie = sequelize.define("categorie", {
     timestamps: false
 });
 
+// Relations
+Categorie.associate = (models) => {
+
+    // Une categorie peut avoir plusieurs specialites
+    Categorie.hasMany(models.Specialite, {
+        foreignKey: "id_categorie",
+        as: "specialites",
+    });
+};
+
 module.exports = Categorie;
