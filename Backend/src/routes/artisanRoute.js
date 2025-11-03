@@ -3,5 +3,6 @@ const router = express.Router();
 const artisanController = require("../controllers/artisanController");
 
 router.get("/top", artisanController.getTopArtisans);
+router.get("/:id_artisan", artisanController.getArtisanById);
 
 module.exports = router;
