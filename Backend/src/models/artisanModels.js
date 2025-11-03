@@ -40,4 +40,14 @@ const Artisan = sequelize.define("artisan", {
     timestamps: false
 });
 
+// Relations
+Artisan.associate = (models) => {
+    
+    // Un artisan appartient a une specialite
+    Artisan.belongsTo(models.Specialite, {
+        foreignKey: "id_specialite",
+        as: "specialite",
+    });
+};
+
 module.exports = Artisan;

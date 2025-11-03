@@ -24,6 +24,12 @@ Specialite.associate = (models) => {
         foreignKey: "id_categorie",
         as: "categorie",
     });
+
+    // Une specialite peut avoir plusieurs artisans
+    Specialite.hasMany(models.Artisan, {
+        foreignKey: "id_specialite",
+        as: "artisans",
+    });
 };
 
 module.exports = Specialite;
