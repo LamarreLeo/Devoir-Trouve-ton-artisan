@@ -26,6 +26,26 @@ const getTopArtisans = async () => {
     return topArtisans;
 };
 
+const getArtisanById = async (id_artisan) => {
+    const artisan = await Artisan.findByPk(id_artisan, {
+        include: [
+            {
+                model: db.Specialite,
+                as: "specialite",
+                include: [
+                    {
+                        model: db.Categorie,
+                        as: "categorie",
+                    },
+                ],
+            },
+        ],
+    });
+
+    return artisan;
+};
+
 module.exports = {
     getTopArtisans,
+    getArtisanById,
 };

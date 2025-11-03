@@ -12,6 +12,19 @@ const getTopArtisans = async (req, res) => {
     }
 };
 
+const getArtisanById = async (req, res) => {
+    try {
+        const artisan = await artisanService.getArtisanById(req.params.id_artisan);
+        if (!artisan) {
+            return res.status(404).json({ message: "Artisan non trouvé" });
+        }
+        res.status(200).json(artisan);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 module.exports = {
     getTopArtisans,
+    getArtisanById,
 };
