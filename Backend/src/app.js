@@ -2,12 +2,14 @@ const express = require("express");
 const dotenv = require("dotenv");
 const sequelize = require("./config/db");
 const categorieRoutes = require("./routes/categorieRoutes");
+const artisanRoutes = require("./routes/artisanRoute");
 
 dotenv.config();
 const app = express();
 app.use(express.json());
 
 app.use("/api/categories", categorieRoutes);
+app.use("/api/artisans", artisanRoutes);
 
 // Démarrage du serveur après la connexion à la base de données
 const startServer = async () => {
