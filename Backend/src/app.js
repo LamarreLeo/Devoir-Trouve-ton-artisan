@@ -1,13 +1,18 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const sequelize = require("./config/db");
+const corsMiddleware = require("./security/corsConfig");
 const categorieRoutes = require("./routes/categorieRoutes");
 const artisanRoutes = require("./routes/artisanRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 dotenv.config();
 const app = express();
+
+// Middleware
+app.use(corsMiddleware);
 app.use(express.json());
 
+// Routes
 app.use("/api/categories", categorieRoutes);
 app.use("/api/artisans", artisanRoutes);
 app.use("/api/contact", contactRoutes);
