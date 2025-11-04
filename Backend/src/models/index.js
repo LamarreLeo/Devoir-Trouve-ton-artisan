@@ -7,7 +7,7 @@ db.Sequelize = Sequelize;
 db.sequelize = dbConfig;
 
 // Import des modèles
-db.Artisan = require("./artisanModels");
+db.Artisan = require("./artisanModel");
 db.Specialite = require("./specialiteModel");
 db.Categorie = require("./categorieModel");
 
