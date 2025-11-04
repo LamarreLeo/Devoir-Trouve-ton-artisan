@@ -1,7 +1,11 @@
 const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const allowedOrigins = [
     "http://localhost:3000",
+    "http://localhost:5173",
+    "http://" + process.env.FRONTEND_URL + ":5173",
     "https://trouve-ton-artisan.com",
 ];
 
