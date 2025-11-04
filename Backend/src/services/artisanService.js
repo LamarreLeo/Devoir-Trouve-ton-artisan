@@ -70,9 +70,11 @@ const getArtisansFiltered = async (categoryName, searchName) => {
         }
 
         if (searchName) {
-            whereCondition.nom = {
-                [Op.iLike]: `%${searchName}%`,
-            };
+            whereCondition.nom = db.sequelize.where(
+                db.sequelize.fn('LOWER', db.sequelize.col('artisan.nom')), 
+                'LIKE', 
+                `%${searchName.toLowerCase()}%`
+            );
         }
 
         const artisans = await Artisan.findAll({
