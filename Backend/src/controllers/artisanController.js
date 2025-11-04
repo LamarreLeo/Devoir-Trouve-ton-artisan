@@ -14,7 +14,9 @@ const getTopArtisans = async (req, res) => {
 
 const getArtisanById = async (req, res) => {
     try {
-        const artisan = await artisanService.getArtisanById(req.params.id_artisan);
+        const artisan = await artisanService.getArtisanById(
+            req.params.id_artisan
+        );
         if (!artisan) {
             return res.status(404).json({ message: "Artisan non trouvé" });
         }
@@ -24,7 +26,23 @@ const getArtisanById = async (req, res) => {
     }
 };
 
+const getArtisansList = async (req, res) => {
+    const category = req.query.category;
+    const search = req.query.search;
+
+    try {
+        const artisans = await artisanService.getArtisansFiltered(
+            category,
+            search
+        );
+        res.json(artisans);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 module.exports = {
     getTopArtisans,
     getArtisanById,
+    getArtisansList,
 };
