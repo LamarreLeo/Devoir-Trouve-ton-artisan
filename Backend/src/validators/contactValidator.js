@@ -1,4 +1,4 @@
-const { body, validationResult } = require("express-validator");
+const { body } = require("express-validator");
 
 const contactFormValidator = [
     body("nom").trim().notEmpty().withMessage("Le nom est requis"),
