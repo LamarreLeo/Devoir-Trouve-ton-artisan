@@ -1,7 +1,9 @@
 function Artisan() {
-    return <>
-        <h1>Artisan</h1>
-    </>;
+    return (
+        <>
+            <h1>Artisan</h1>
+        </>
+    );
 }
 
 export default Artisan;
