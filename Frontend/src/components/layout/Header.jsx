@@ -90,7 +90,7 @@ function Header() {
                                 <li key={category.nom} role="none">
                                     <NavLink
                                         to={`/search?category=${category.nom}`}
-                                        className="hover:underline text-sm lg:text-base"
+                                        className="hover:underline text-sm lg:text-base dark"
                                     >
                                         {category.nom}
                                     </NavLink>

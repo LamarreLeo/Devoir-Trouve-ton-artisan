@@ -2,11 +2,11 @@ import StepItem from "../components/ui/StepItem";
 
 function Home() {
     return (
-        <div className="flex items-center justify-between w-full max-w-[1280px] gap-10">
+        <>
             {/* Section Comment trouver mon artisan */}
-            <section>
-                <h1>Comment trouver mon artisan ?</h1>
-                <ol>
+            <section className="flex flex-col justify-center items-center gap-20 mt-20 px-10">
+                <h1 className="text-4xl dark-blue">Comment trouver mon artisan ?</h1>
+                <ol className="flex flex-col md:flex-row gap-10 md:gap-4 lg:gap-20">
                     <StepItem
                         stepNumber={1}
                         stepDescription="Choisir la catégorie d'artisanat dans le menu."
@@ -25,7 +25,7 @@ function Home() {
                     />
                 </ol>
             </section>
-        </div>
+        </>
     );
 }
 

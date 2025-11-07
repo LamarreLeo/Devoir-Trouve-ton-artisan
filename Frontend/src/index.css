@@ -27,3 +27,31 @@
 * {
     font-family: "Graphik-Medium";
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Graphik-Bold";
+}
+
+.dark-blue {
+    color: #00497C;
+}
+
+.blue {
+    color: #0074C7;
+}
+
+.dark {
+    color: #384050;
+}
+
+.light {
+    color: #F1F8FC;
+}
+
+.red {
+    color: #CD2C2E;
+}
+
+.green {
+    color: #82B864;
+}
