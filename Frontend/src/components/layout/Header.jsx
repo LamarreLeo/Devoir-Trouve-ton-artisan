@@ -36,11 +36,12 @@ function Header() {
 
     return (
         <header
-            className={`flex flex-col justify-center items-center shadow-sm md:h-[135px] lg:h-[135px] w-full transition-all duration-300 
-                ${searchExpanded ? "h-[200px]" : "h-[75px]"}
-                ${menuExpanded ? "h-[200px]" : "h-[75px]"}`}
+            className={`flex flex-col items-center shadow-sm md:h-[135px] lg:h-[135px] 
+                w-full transition-all duration-300 
+                ${searchExpanded ? "h-[170px]" : "h-[75px]"}
+                ${menuExpanded ? "h-[170px]" : "h-[75px]"}`}
         >
-            <div className="flex items-center justify-between w-full max-w-[1280px] md:px-4">
+            <div className="flex items-center justify-between w-full max-w-[1280px] md:px-4 mt-[-18px] md:mt-[-28px] lg:mt-[-36px]">
                 {/* Logo */}
                 <Link to="/">
                     <img
@@ -114,7 +115,11 @@ function Header() {
                                 }
                             }}
                         >
-                            <Menu className="w-6 h-6 text-[#0074C5] cursor-pointer" />
+                            <Menu
+                                className={`w-6 h-6 text-[#0074C5] cursor-pointer transition-all duration-300 ${
+                                    menuExpanded ? "rotate-270" : ""
+                                }`}
+                            />
                         </button>
                     </div>
                 </div>
@@ -142,7 +147,7 @@ function Header() {
             {/* Mobile Menu */}
             {menuExpanded && (
                 <nav>
-                    <ul className="flex gap-2">
+                    <ul className="flex gap-4">
                         {categories.map((category) => (
                             <li key={category.nom}>
                                 <NavLink
