@@ -40,6 +40,8 @@ function Header() {
                 w-full transition-all duration-300 
                 ${searchExpanded ? "h-[170px]" : "h-[75px]"}
                 ${menuExpanded ? "h-[170px]" : "h-[75px]"}`}
+            aria-label="En-tête principal"
+            role="banner"
         >
             <div className="flex items-center justify-between w-full max-w-[1280px] md:px-4 mt-[-18px] md:mt-[-28px] lg:mt-[-36px]">
                 {/* Logo */}
@@ -59,12 +61,17 @@ function Header() {
                             onSubmit={handleSearch}
                             className="border border-[#0074C5] rounded-md p-2 flex items-center"
                         >
+                            <label htmlFor="search-input" className="sr-only">
+                                Rechercher un artisan
+                            </label>
                             <input
-                                type="text"
+                                id="search-input"
+                                type="search"
                                 placeholder="Chercher un artisan"
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
                                 className="focus:outline-none w-[250px]"
+                                aria-required="true"
                             />
                             <button type="submit">
                                 <Search className="w-5 h-5 text-[#0074C5] cursor-pointer" />
@@ -73,10 +80,14 @@ function Header() {
                     </div>
 
                     {/* Header Links */}
-                    <nav className="hidden md:flex justify-center">
+                    <nav
+                        className="hidden md:flex justify-center"
+                        role="navigation"
+                        aria-label="Navigation principale"
+                    >
                         <ul className="flex gap-5">
                             {categories.map((category) => (
-                                <li key={category.nom}>
+                                <li key={category.nom} role="none">
                                     <NavLink
                                         to={`/search?category=${category.nom}`}
                                         className="hover:underline text-sm lg:text-base"
@@ -92,6 +103,7 @@ function Header() {
                     <div className="md:hidden flex gap-5">
                         {/* Search Icon */}
                         <button
+                            type="button"
                             onClick={() => {
                                 if (searchExpanded) {
                                     setSearchExpanded(false);
@@ -100,12 +112,23 @@ function Header() {
                                     setSearchExpanded(true);
                                 }
                             }}
+                            aria-expanded={searchExpanded}
+                            aria-controls="mobile-search"
+                            aria-label={
+                                searchExpanded
+                                    ? "Fermer la recherche"
+                                    : "Ouvrir la recherche"
+                            }
                         >
-                            <Search className="w-6 h-6 text-[#0074C5] cursor-pointer" />
+                            <Search
+                                className="w-6 h-6 text-[#0074C5] cursor-pointer"
+                                aria-hidden="true"
+                            />
                         </button>
 
                         {/* Menu Icon */}
                         <button
+                            type="button"
                             onClick={() => {
                                 if (menuExpanded) {
                                     setMenuExpanded(false);
@@ -114,11 +137,20 @@ function Header() {
                                     setMenuExpanded(true);
                                 }
                             }}
+                            aria-expanded={menuExpanded}
+                            aria-controls="mobile-menu"
+                            aria-label={
+                                menuExpanded
+                                    ? "Fermer le menu"
+                                    : "Ouvrir le menu"
+                            }
+                            aria-haspopup="true"
                         >
                             <Menu
                                 className={`w-6 h-6 text-[#0074C5] cursor-pointer transition-all duration-300 ${
                                     menuExpanded ? "rotate-270" : ""
                                 }`}
+                                aria-hidden="true"
                             />
                         </button>
                     </div>
@@ -126,42 +158,72 @@ function Header() {
             </div>
 
             {/* Mobile Search Bar */}
-            {searchExpanded && (
-                <form
-                    onSubmit={handleSearch}
-                    className="border border-[#0074C5] rounded-md p-2 flex items-center"
-                >
-                    <input
-                        type="text"
-                        placeholder="Chercher un artisan"
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                        className="focus:outline-none w-[250px]"
-                    />
-                    <button type="submit">
-                        <Search className="w-5 h-5 text-[#0074C5] cursor-pointer" />
-                    </button>
-                </form>
-            )}
+            <div
+                id="mobile-search"
+                role="search"
+                aria-label="Recherche mobile"
+                className={`px-4 transition-all duration-300 ${
+                    searchExpanded ? "opacity-100" : "opacity-0 h-0"
+                }`}
+            >
+                {searchExpanded && (
+                    <form
+                        onSubmit={handleSearch}
+                        className="border border-[#0074C5] rounded-md p-2 flex items-center"
+                    >
+                        <label
+                            htmlFor="mobile-search-input"
+                            className="sr-only"
+                        >
+                            Rechercher un artisan
+                        </label>
+                        <input
+                            id="mobile-search-input"
+                            type="search"
+                            placeholder="Chercher un artisan"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            className="focus:outline-none w-[300px]"
+                            aria-required="true"
+                        />
+                        <button type="submit">
+                            <Search className="w-5 h-5 text-[#0074C5] cursor-pointer" />
+                        </button>
+                    </form>
+                )}
+            </div>
 
             {/* Mobile Menu */}
-            {menuExpanded && (
-                <nav>
-                    <ul className="flex gap-4">
+            <nav
+                id="mobile-menu"
+                role="navigation"
+                aria-label="Menu principal"
+                className={`w-full flex justify-center px-4 transition-all duration-300 ${
+                    menuExpanded ? "opacity-100" : "opacity-0 h-0"
+                }`}
+            >
+                {menuExpanded && (
+                    <ul
+                        className="flex gap-4"
+                        role="menubar"
+                        aria-label="Catégories"
+                    >
                         {categories.map((category) => (
-                            <li key={category.nom}>
+                            <li key={category.nom} role="none">
                                 <NavLink
                                     to={`/search?category=${category.nom}`}
                                     className="hover:underline text-sm lg:text-base block py-2"
                                     onClick={() => setMenuExpanded(false)}
+                                    role="menuitem"
+                                    tabIndex={menuExpanded ? 0 : -1}
                                 >
                                     {category.nom}
                                 </NavLink>
                             </li>
                         ))}
                     </ul>
-                </nav>
-            )}
+                )}
+            </nav>
         </header>
     );
 }
