@@ -6,6 +6,8 @@ import { Search, Menu } from "lucide-react";
 function Header() {
     const [search, setSearch] = useState("");
     const [categories, setCategories] = useState([]);
+    const [searchExpanded, setSearchExpanded] = useState(false);
+    const [menuExpanded, setMenuExpanded] = useState(false);
     const navigate = useNavigate();
 
     // Gestion de la recherche
@@ -33,7 +35,11 @@ function Header() {
     }, []);
 
     return (
-        <header className="flex flex-col justify-center items-center shadow-sm h-[75px] md:h-[135px] lg:h-[135px] w-full">
+        <header
+            className={`flex flex-col justify-center items-center shadow-sm md:h-[135px] lg:h-[135px] w-full transition-all duration-300 
+                ${searchExpanded ? "h-[200px]" : "h-[75px]"}
+                ${menuExpanded ? "h-[200px]" : "h-[75px]"}`}
+        >
             <div className="flex items-center justify-between w-full max-w-[1280px] md:px-4">
                 {/* Logo */}
                 <Link to="/">
@@ -84,17 +90,73 @@ function Header() {
                     {/* Header Mobile */}
                     <div className="md:hidden flex gap-5">
                         {/* Search Icon */}
-                        <button>
+                        <button
+                            onClick={() => {
+                                if (searchExpanded) {
+                                    setSearchExpanded(false);
+                                } else {
+                                    setMenuExpanded(false);
+                                    setSearchExpanded(true);
+                                }
+                            }}
+                        >
                             <Search className="w-6 h-6 text-[#0074C5] cursor-pointer" />
                         </button>
 
                         {/* Menu Icon */}
-                        <button>
+                        <button
+                            onClick={() => {
+                                if (menuExpanded) {
+                                    setMenuExpanded(false);
+                                } else {
+                                    setSearchExpanded(false);
+                                    setMenuExpanded(true);
+                                }
+                            }}
+                        >
                             <Menu className="w-6 h-6 text-[#0074C5] cursor-pointer" />
                         </button>
                     </div>
                 </div>
             </div>
+
+            {/* Mobile Search Bar */}
+            {searchExpanded && (
+                <form
+                    onSubmit={handleSearch}
+                    className="border border-[#0074C5] rounded-md p-2 flex items-center"
+                >
+                    <input
+                        type="text"
+                        placeholder="Chercher un artisan"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        className="focus:outline-none w-[250px]"
+                    />
+                    <button type="submit">
+                        <Search className="w-5 h-5 text-[#0074C5] cursor-pointer" />
+                    </button>
+                </form>
+            )}
+
+            {/* Mobile Menu */}
+            {menuExpanded && (
+                <nav>
+                    <ul className="flex gap-2">
+                        {categories.map((category) => (
+                            <li key={category.nom}>
+                                <NavLink
+                                    to={`/search?category=${category.nom}`}
+                                    className="hover:underline text-sm lg:text-base block py-2"
+                                    onClick={() => setMenuExpanded(false)}
+                                >
+                                    {category.nom}
+                                </NavLink>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            )}
         </header>
     );
 }
