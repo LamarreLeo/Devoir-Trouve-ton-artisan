@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { MapPin, Hammer, Wrench, ChefHat, Factory, Star } from "lucide-react";
+import { MapPin, Hammer, User, ChefHat, Factory, Star } from "lucide-react";
 
 function ArtisanCard({ artisan }) {
     // Mapping des icônes selon la catégorie
     const categoryIcons = {
         Bâtiment: <Hammer className="blue w-4 h-4" />,
-        Services: <Wrench className="blue w-4 h-4" />,
+        Services: <User className="blue w-4 h-4" />,
         Fabrication: <Factory className="blue w-4 h-4" />,
         Alimentation: <ChefHat className="blue w-4 h-4" />,
     };
@@ -13,7 +13,7 @@ function ArtisanCard({ artisan }) {
     // Mapping des icônes de fond selon la catégorie
     const bgCategoryIcons = {
         Bâtiment: <Hammer className="blue w-full h-full opacity-10" />,
-        Services: <Wrench className="blue w-full h-full opacity-10" />,
+        Services: <User className="blue w-full h-full opacity-10" />,
         Fabrication: <Factory className="blue w-full h-full opacity-10" />,
         Alimentation: <ChefHat className="blue w-full h-full opacity-10" />,
     };
@@ -39,7 +39,7 @@ function ArtisanCard({ artisan }) {
 
     return (
         <Link to={`/artisan/:${artisan.id_artisan}`}>
-            <div className="relative flex flex-col items-center justify-center gap-2 md:gap-4 bg-light p-4 md:p-8 rounded-lg dark shadow-md">
+            <div className="relative flex flex-col items-center justify-center gap-2 md:gap-4 bg-light p-4 md:p-8 rounded-lg dark shadow-md hover:shadow-xl transition-all duration-300">
                 {/* Icône de fond */}
                 <div className="absolute w-36 h-36">
                     {bgCategoryIcons[artisan.specialite.categorie.nom]}
@@ -61,7 +61,7 @@ function ArtisanCard({ artisan }) {
                     <div className="flex items-center gap-2">
                         {categoryIcons[artisan.specialite.categorie.nom]}
                         <p className="text-sm">
-                            {artisan.specialite.categorie.nom}
+                            {artisan.specialite.nom}
                         </p>
                     </div>
 
