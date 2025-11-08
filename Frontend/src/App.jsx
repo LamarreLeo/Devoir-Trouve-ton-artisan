@@ -6,7 +6,7 @@ export default function App() {
     return (
         <>
             <Header />
-            <main>
+            <main className="flex flex-col items-center justify-center w-full max-w-[1280px] mx-auto gap-20 lg:gap-30">
                 <Outlet />
             </main>
         </>
