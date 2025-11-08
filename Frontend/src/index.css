@@ -44,8 +44,8 @@ h1, h2, h3, h4, h5, h6 {
     color: #384050;
 }
 
-.light {
-    color: #F1F8FC;
+.bg-light {
+    background-color: #F1F8FC;
 }
 
 .red {

@@ -1,4 +1,5 @@
 import StepItem from "../components/ui/StepItem";
+import TopArtisans from "../components/ui/TopArtisans.jsx";
 
 function Home() {
     return (
@@ -29,6 +30,7 @@ function Home() {
             {/* Section "Les artisans du mois" */}
             <section className="flex flex-col justify-center items-center gap-20 px-10">
                 <h1 className="text-2xl md:text-3xl lg:text-4xl dark-blue">Les artisans du mois</h1>
+                <TopArtisans />
             </section>
         </>
     );
