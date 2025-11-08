@@ -31,7 +31,7 @@ function TopArtisans() {
 
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-2 lg:gap-14">
                 {topArtisans.map((artisan) => (
                     <ArtisanCard key={artisan.id} artisan={artisan} />
                 ))}
