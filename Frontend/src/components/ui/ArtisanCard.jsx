@@ -38,7 +38,7 @@ function ArtisanCard({ artisan }) {
     };
 
     return (
-        <Link to={`/artisan/:${artisan.id_artisan}`}>
+        <Link to={`/artisan/${artisan.id_artisan}`}>
             <div className="relative flex flex-col items-center justify-center gap-2 md:gap-4 bg-light p-4 md:p-8 rounded-lg dark shadow-md hover:shadow-xl transition-all duration-300">
                 {/* Icône de fond */}
                 <div className="absolute w-36 h-36">
@@ -60,9 +60,7 @@ function ArtisanCard({ artisan }) {
                 <div className="flex flex-col items-center gap-2">
                     <div className="flex items-center gap-2">
                         {categoryIcons[artisan.specialite.categorie.nom]}
-                        <p className="text-sm">
-                            {artisan.specialite.nom}
-                        </p>
+                        <p className="text-sm">{artisan.specialite.nom}</p>
                     </div>
 
                     <div className="flex items-center gap-2">

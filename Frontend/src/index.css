@@ -28,16 +28,21 @@
     font-family: "Graphik-Medium";
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: "Graphik-Bold";
 }
 
 .dark-blue {
-    color: #00497C;
+    color: #00497c;
 }
 
 .blue {
-    color: #0074C7;
+    color: #0074c7;
 }
 
 .dark {
@@ -45,13 +50,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-light {
-    background-color: #F1F8FC;
+    background-color: #f1f8fc;
 }
 
-.red {
-    color: #CD2C2E;
+.bg-red {
+    background-color: #cd2c2e;
 }
 
-.green {
-    color: #82B864;
+.bg-green {
+    background-color: #82b864;
 }

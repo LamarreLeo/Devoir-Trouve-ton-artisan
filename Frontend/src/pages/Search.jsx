@@ -33,7 +33,7 @@ function Search() {
 
     return (
         <>
-            <section className="flex flex-col justify-center items-center gap-10 md:gap-20 mt-10 md:mt-20 px-10">
+            <section className="flex flex-col justify-center items-center gap-10 md:gap-20 px-10">
                 <h1 className="text-2xl md:text-3xl lg:text-4xl dark-blue">
                     {category 
                         ? `Artisans de la catégorie "${category}"` 
