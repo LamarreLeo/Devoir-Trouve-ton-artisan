@@ -22,6 +22,7 @@ function Artisan() {
         Alimentation: <ChefHat className="blue w-6 h-6" />,
     };
 
+    // Récupération de l'artisan
     useEffect(() => {
         const fetchArtisan = async () => {
             try {
@@ -36,6 +37,7 @@ function Artisan() {
         fetchArtisan();
     }, [id_artisan]);
 
+    // Gestion du formulaire
     const handleChange = (e) => {
         setForm({
             ...form,
@@ -83,7 +85,9 @@ function Artisan() {
 
     return (
         <>
+            {/* Section présentation de l'artisan */}
             <section className="flex flex-col w-full justify-center items-center gap-10 md:gap-20 px-10">
+                {/* Nom, note et site */}
                 <div className="flex flex-col items-center justify-center gap-6">
                     <div className="flex flex-col items-center gap-4">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl dark-blue">
@@ -105,7 +109,9 @@ function Artisan() {
                     )}
                 </div>
 
+                {/* Informations */}
                 <div className="flex flex-col md:flex-row w-full justify-around items-center gap-10">
+                    {/* Specialité et ville */}
                     <div className="flex flex-col gap-4">
                         <div className="flex items-center gap-2">
                             {categoryIcons[artisan.specialite.categorie.nom]}
@@ -116,6 +122,8 @@ function Artisan() {
                             <p className="text-sm">{artisan.ville}</p>
                         </div>
                     </div>
+
+                    {/* A propos */}
                     <div className="flex flex-col justify-center items-center gap-4 max-w-[420px]">
                         <h2 className="text-lg md:text-xl lg:text-2xl blue">
                             A propos
@@ -127,6 +135,7 @@ function Artisan() {
                 </div>
             </section>
 
+            {/* Section formulaire de contact */}
             <section className="flex flex-col w-full justify-center items-center gap-10 md:gap-20 px-10">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl dark-blue">
                     Contacter l'artisan :
