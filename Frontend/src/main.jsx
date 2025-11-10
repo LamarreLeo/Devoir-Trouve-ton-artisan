@@ -6,6 +6,8 @@ import App from "./App";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Artisan from "./pages/Artisan";
+import Construction from "./pages/Construction";
+import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
             {
                 path: "/artisan/:id_artisan",
                 element: <Artisan />,
+            },
+            {
+                path: "/page-en-construction",
+                element: <Construction />,
+            },
+            {
+                path: "*",
+                element: <NotFound />,
             },
         ],
     },

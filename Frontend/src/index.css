@@ -37,6 +37,10 @@ h6 {
     font-family: "Graphik-Bold";
 }
 
+.text-lt {
+    font-family: "Graphik-Light";
+}
+
 .dark-blue {
     color: #00497c;
 }
