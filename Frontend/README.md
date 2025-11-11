@@ -10,6 +10,7 @@ Ce répertoire contient le code source du frontend de l'application "Trouve Ton 
 2. Clonez le dépôt : `git clone https://github.com/LamarreLeo/Devoir-Trouve-ton-artisan`
 3. Accédez au répertoire du frontend : `cd Devoir-Trouve-ton-artisan/Frontend`
 4. Installez les dépendances : `npm install`
+5. Configurez le fichier `.env` avec vos variables d'environnement.
 
 ## Scripts Disponibles
 
