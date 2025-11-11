@@ -1,9 +1,17 @@
 import StepItem from "../components/ui/StepItem";
 import TopArtisans from "../components/ui/TopArtisans.jsx";
+import { Helmet } from "react-helmet-async";
 
 function Home() {
     return (
         <>
+            <Helmet>
+                <title>Accueil - Trouve Ton Artisan !</title>
+                <meta
+                    name="description"
+                    content="Trouvez un artisan qualifié en Auvergne-Rhône-Alpes. Contactez un professionnel près de chez vous."
+                />
+            </Helmet>
             {/* Section "Comment trouver mon artisan" */}
             <section className="flex flex-col justify-center items-center gap-10 md:gap-20 px-10">
                 <h1 className="text-2xl md:text-3xl lg:text-4xl dark-blue">
