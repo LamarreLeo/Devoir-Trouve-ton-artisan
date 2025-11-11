@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getArtisans } from "../services/api";
 import ArtisanCard from "../components/ui/ArtisanCard";
+import { Helmet } from "react-helmet-async";
 
 function Search() {
     const [artisans, setArtisans] = useState([]);
@@ -26,20 +27,28 @@ function Search() {
             } finally {
                 setLoading(false);
             }
-        }
+        };
 
         fetchArtisans();
     }, [category, search]);
 
     return (
         <>
+            <Helmet>
+                <title>Recherche - Trouve Ton Artisan !</title>
+                <meta
+                    name="description"
+                    content="Découvrez les artisans qualifiés en Auvergne-Rhône-Alpes. Trouvez un professionnel près de chez vous."
+                />
+            </Helmet>
+
             <section className="flex flex-col justify-center items-center gap-10 md:gap-20 px-10">
                 <h1 className="text-2xl md:text-3xl lg:text-4xl dark-blue">
-                    {category 
-                        ? `Artisans de la catégorie "${category}"` 
+                    {category
+                        ? `Artisans de la catégorie "${category}"`
                         : search
-                            ? `Résultats pour "${search}"`
-                            : "Tous les artisans"}
+                        ? `Résultats pour "${search}"`
+                        : "Tous les artisans"}
                 </h1>
 
                 {loading ? (
