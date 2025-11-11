@@ -15,7 +15,7 @@ const corsOption = {
             return callback(null, true);
         }
         
-        if (allowedOrigins.includes(origin)) {
+        if (allowedOrigins.includes(origin) || origin.includes('.vercel.app')) {
             callback(null, true);
         } else {
             console.log("Origine bloquée:", origin);
