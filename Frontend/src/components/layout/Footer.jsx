@@ -9,7 +9,7 @@ function Footer() {
                     {/* Logo */}
                     <Link to="/">
                         <img
-                            src="src/assets/img/Logo_white.png"
+                            src="/assets/img/Logo_white.png"
                             alt="Logo de Trouve Ton Artisan !"
                             className="w-[200px] md:w-[350px] lg:w-[380px]"
                         />
