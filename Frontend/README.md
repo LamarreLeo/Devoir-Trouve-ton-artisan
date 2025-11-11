@@ -1,16 +1,35 @@
-# React + Vite
+# Frontend de Trouve Ton Artisan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+Ce répertoire contient le code source du frontend de l'application "Trouve Ton Artisan". Cette application est développée en React et utilise Vite pour le bundling et le développement.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup et Installation
 
-## React Compiler
+1. Assurez-vous d'avoir Node.js installé sur votre machine.
+2. Clonez le dépôt : `git clone https://github.com/LamarreLeo/Devoir-Trouve-ton-artisan`
+3. Accédez au répertoire du frontend : `cd Devoir-Trouve-ton-artisan/Frontend`
+4. Installez les dépendances : `npm install`
+5. Configurez le fichier `.env` avec vos variables d'environnement.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Scripts Disponibles
 
-## Expanding the ESLint configuration
+-   `npm run dev` : Lance l'application en mode développement.
+-   `npm run build` : Construit l'application pour la production.
+-   `npm run lint` : Exécute ESLint pour analyser le code.
+-   `npm run preview` : Prévisualise l'application construite.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Dépendances
+
+-   React
+-   React Router
+-   Tailwind CSS
+-   Axios
+-   Lucide React
+-   Helmet
+
+## Outils de Développement
+
+-   Vite
+-   ESLint
+-   Tailwind CSS
