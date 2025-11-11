@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArtisanById, sendContactMessage } from "../services/api";
 import { MapPin, Hammer, User, ChefHat, Factory, Star } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 function Artisan() {
     const { id_artisan } = useParams();
@@ -85,6 +86,14 @@ function Artisan() {
 
     return (
         <>
+            <Helmet>
+                <title>{artisan.nom} - Trouve Ton Artisan !</title>
+                <meta
+                    name="description"
+                    content={`Découvrez les informations de l'artisan ${artisan.nom} et contactez-le via le formulaire de contact.`}
+                />
+            </Helmet>
+
             {/* Section présentation de l'artisan */}
             <section className="flex flex-col w-full justify-center items-center gap-10 md:gap-20 px-10">
                 {/* Nom, note et site */}
