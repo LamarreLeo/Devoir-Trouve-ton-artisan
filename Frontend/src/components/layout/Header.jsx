@@ -47,7 +47,7 @@ function Header() {
                 {/* Logo */}
                 <Link to="/">
                     <img
-                        src="src/assets/img/Logo.png"
+                        src="/assets/img/Logo.png"
                         alt="Logo de Trouve Ton Artisan !"
                         className="w-[200px] md:w-[350px] lg:w-[380px]"
                     />
